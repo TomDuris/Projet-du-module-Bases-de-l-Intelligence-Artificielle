@@ -26,12 +26,13 @@ namespace Pluscourtchemin
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+           //Lors de la première initialisation une matrice nombre de neouds x nombre de noeuds se met en place en initialisant chaque noeuds à -1
             matrice = new double[nbnodes, nbnodes];
             for (int i = 0; i < nbnodes; i++)
                 for (int j = 0; j < nbnodes; j++)
                     matrice[i, j] = -1;
 
+            //On met en place des coordonnées (mais là je ne comprends pas exactement)
             matrice[0, 1] = 3;   matrice[1, 0] = 3;
             matrice[0, 2] = 5;      matrice[2, 0] = 5;
             matrice[0, 3] = 7;      matrice[3, 0] = 7;
@@ -43,6 +44,7 @@ namespace Pluscourtchemin
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             numinitial = Convert.ToInt32(textBox1.Text);
             numfinal = Convert.ToInt32(textBox2.Text);
             SearchTree g = new SearchTree();
@@ -86,7 +88,7 @@ namespace Pluscourtchemin
                 for (int j = 0; j < nbnodes; j++)
                     matrice[i, j] = -1;
 
-            // Ensuite on a ls tructure suivante : 
+            // Ensuite on a la structure suivante : 
             //  arc : n°noeud départ    n°noeud arrivée  valeur
             //  exemple 4 : 
             ligne = monStreamReader.ReadLine();

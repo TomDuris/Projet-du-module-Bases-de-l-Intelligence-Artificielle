@@ -50,6 +50,8 @@ namespace Pluscourtchemin
             return null;
         }
 
+
+        //Méthode de recherche A* à partir d'un noued initial
         public List<GenericNode> RechercheSolutionAEtoile(GenericNode N0)
         {
             L_Ouverts = new List<GenericNode>();
@@ -58,7 +60,7 @@ namespace Pluscourtchemin
             GenericNode N = N0;
             L_Ouverts.Add(N0);
 
-            // tant que le noeud n'est pas terminal et que ouverts n'est pas vide
+            // La recherche continue tant que le noeud n'est pas le noeud terminal et que la liste ouverte n'est pas vide
             while (L_Ouverts.Count != 0 && N.EndState() == false)
             {
                 // Le meilleur noeud des ouverts est supposé placé en tête de liste
