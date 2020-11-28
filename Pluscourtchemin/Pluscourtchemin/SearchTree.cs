@@ -8,9 +8,11 @@ namespace Pluscourtchemin
 {
     class SearchTree
     {
+        //on met en place la liste ouverte qui sert à garder en mémoire les noeuds en exploration et la liste fermée qui sert à mettre en mémoire les noeuds déjà explorés
         public List<GenericNode> L_Ouverts;
         public List<GenericNode> L_Fermes;
 
+        //Méthodes pour compter le nombre de noeuds contenus dans chaque liste
         public int CountInOpenList()
         {
             return L_Ouverts.Count;
@@ -20,6 +22,7 @@ namespace Pluscourtchemin
             return L_Fermes.Count;
         }
 
+        //Méthode de recherche d'un noeud dans la liste fermée
         private GenericNode ChercheNodeDansFermes(GenericNode N2)
         {
             int i = 0;
@@ -33,6 +36,7 @@ namespace Pluscourtchemin
             return null;
         }
 
+        //Méthode de recherche d'un noeud dans la liste ouverte
         private GenericNode ChercheNodeDansOuverts(GenericNode N2)
         {
             int i = 0;
