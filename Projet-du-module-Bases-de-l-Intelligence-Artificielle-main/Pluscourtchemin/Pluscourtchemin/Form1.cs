@@ -17,8 +17,6 @@ namespace Pluscourtchemin
         static public double[,] matrice;
         static public int nbnodes = 400;
         public List<GenericNode> soluce = new List<GenericNode>();
-        static public int numinitial;
-        static public int numfinal;
 
         public Affichage()
         {
@@ -28,30 +26,28 @@ namespace Pluscourtchemin
         private void button3_Click(object sender, EventArgs e)
         {
 
-            Node Point_Initial = new Node(Convert.ToInt32(X_init.Text), Convert.ToInt32(Y_init.Text));
-            Node Point_final = new Node(Convert.ToInt32(X_final.Text), Convert.ToInt32(Y_final.Text));
-            Node.Pf_x = Convert.ToInt32(X_final.Text);
-            Node.Pf_y = Convert.ToInt32(Y_final.Text);
+            Node Point_Initial = new Node(Convert.ToDouble(X_init.Text), Convert.ToDouble(Y_init.Text));
+            Node Point_final = new Node(Convert.ToDouble(X_final.Text), Convert.ToDouble(Y_final.Text));
+            Node.Pf_x = Convert.ToDouble(X_final.Text);
+            Node.Pf_y = Convert.ToDouble(Y_final.Text);
+            Node.distance_Noeud = Convert.ToDouble(tBDistanceNoeud.Text);
+            Node.Zone_voisinage = Convert.ToDouble(tBZoneVoisin.Text);
 
-            //Node.precision = Convert.ToInt32(tBPrecision.Text);
             listBox1.Items.Add("( " + Convert.ToString(Point_Initial.P_x) + ", " + Convert.ToString(Point_Initial.P_y)+ ")");
             Point_Initial.cas = Convert.ToChar(cbChoixVent.SelectedItem.ToString());
             SearchTree g = new SearchTree();
-            //Node2 N0 = new Node2();
-            //N0.numero = numinitial;
             
             List<GenericNode> solution = g.RechercheSolutionAEtoile(Point_Initial);
             MessageBox.Show(Convert.ToString(solution.Count));
-            //Node2 N1 = N0;
             Node N1 = Point_Initial;
 
-            for (int i=1; i < solution.Count; i++)
+            for (int i=0; i < solution.Count; i++)
             {
                 Node N2 = (Node)solution[i];
                 soluce.Add(N2);
                 listBox1.Items.Add("( " + N2.P_x + ", " + N2.P_y + ")");
                 N1 = N2;
-                if (i == solution.Count - 1)
+                if (i == solution.Count-1)
                     tpsNavigation.Text = Convert.ToString(solution[i].GetGCost());
 
 
@@ -64,12 +60,14 @@ namespace Pluscourtchemin
         public int PositionX_Noeud(GenericNode N)
         {
             Node NI = (Node)N;
-            return NI.P_x;
+            int Px = Convert.ToInt32(NI.P_x);
+            return  Px;
         }
         public int PositionY_Noeud(GenericNode N)
         {
             Node NI = (Node)N;
-            return  NI.P_y;
+            int Py = Convert.ToInt32(NI.P_y);
+            return Py;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -144,24 +142,13 @@ namespace Pluscourtchemin
             // Fermeture du StreamReader (obligatoire) 
             monStreamReader.Close();
         }
-
-        private void Affichage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void X_init_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Simulations(object sender, EventArgs e)
         {
             Pen redPen = new Pen(Color.Red);
             redPen.Width = 3F;
             Graphics t = Mer.CreateGraphics();
             Node NI = (Node)soluce.ElementAt(0);
-            Point pos_depart = new Point(NI.P_x, (300-NI.P_y+1));
+            Point pos_depart = new Point(Convert.ToInt32(NI.P_x), (300- Convert.ToInt32(NI.P_y)+1));
             foreach (GenericNode N in soluce)
             {
                 listBox1.Items.Add(N);
@@ -176,22 +163,9 @@ namespace Pluscourtchemin
         private void Nettoyage_Click(object sender, EventArgs e)
         {
             Graphics t = Mer.CreateGraphics();
-            t.Clear(Color.Blue);
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbChoixVent_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            listBox1.Items.Clear();
+            listBoxgraphe.Items.Clear();
+            soluce.Clear();
         }
     }
 }
