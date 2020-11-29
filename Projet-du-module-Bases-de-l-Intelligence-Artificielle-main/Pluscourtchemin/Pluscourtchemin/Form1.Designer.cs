@@ -53,23 +53,24 @@
             this.lNOuverts = new System.Windows.Forms.Label();
             this.lNfermes = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lPrecision = new System.Windows.Forms.Label();
-            this.tBPrecision = new System.Windows.Forms.TextBox();
+            this.tBZoneVoisin = new System.Windows.Forms.TextBox();
+            this.lVoisinage = new System.Windows.Forms.Label();
+            this.tBDistanceNoeud = new System.Windows.Forms.TextBox();
+            this.lDistanceNoeud = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Mer)).BeginInit();
             this.SuspendLayout();
             // 
             // X_init
             // 
-            this.X_init.Location = new System.Drawing.Point(49, 132);
+            this.X_init.Location = new System.Drawing.Point(57, 121);
             this.X_init.Name = "X_init";
             this.X_init.Size = new System.Drawing.Size(100, 20);
             this.X_init.TabIndex = 1;
             this.X_init.Text = "100";
-            this.X_init.TextChanged += new System.EventHandler(this.X_init_TextChanged);
             // 
             // X_final
             // 
-            this.X_final.Location = new System.Drawing.Point(169, 132);
+            this.X_final.Location = new System.Drawing.Point(177, 121);
             this.X_final.Name = "X_final";
             this.X_final.Size = new System.Drawing.Size(100, 20);
             this.X_final.TabIndex = 2;
@@ -78,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 103);
+            this.label1.Location = new System.Drawing.Point(67, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 4;
@@ -87,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 103);
+            this.label2.Location = new System.Drawing.Point(198, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 5;
@@ -100,7 +101,6 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(128, 355);
             this.listBox1.TabIndex = 6;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // treeView1
             // 
@@ -111,7 +111,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(49, 490);
+            this.button3.Location = new System.Drawing.Point(439, 526);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 51);
             this.button3.TabIndex = 8;
@@ -122,7 +122,7 @@
             // Y
             // 
             this.Y.AutoSize = true;
-            this.Y.Location = new System.Drawing.Point(29, 175);
+            this.Y.Location = new System.Drawing.Point(37, 164);
             this.Y.Name = "Y";
             this.Y.Size = new System.Drawing.Size(14, 13);
             this.Y.TabIndex = 10;
@@ -131,7 +131,7 @@
             // X
             // 
             this.X.AutoSize = true;
-            this.X.Location = new System.Drawing.Point(29, 139);
+            this.X.Location = new System.Drawing.Point(37, 128);
             this.X.Name = "X";
             this.X.Size = new System.Drawing.Size(14, 13);
             this.X.TabIndex = 11;
@@ -139,7 +139,7 @@
             // 
             // Y_init
             // 
-            this.Y_init.Location = new System.Drawing.Point(49, 168);
+            this.Y_init.Location = new System.Drawing.Point(57, 157);
             this.Y_init.Name = "Y_init";
             this.Y_init.Size = new System.Drawing.Size(100, 20);
             this.Y_init.TabIndex = 12;
@@ -147,7 +147,7 @@
             // 
             // Y_final
             // 
-            this.Y_final.Location = new System.Drawing.Point(169, 168);
+            this.Y_final.Location = new System.Drawing.Point(177, 157);
             this.Y_final.Name = "Y_final";
             this.Y_final.Size = new System.Drawing.Size(100, 20);
             this.Y_final.TabIndex = 13;
@@ -156,7 +156,7 @@
             // Vent
             // 
             this.Vent.AutoSize = true;
-            this.Vent.Location = new System.Drawing.Point(61, 227);
+            this.Vent.Location = new System.Drawing.Point(56, 248);
             this.Vent.Name = "Vent";
             this.Vent.Size = new System.Drawing.Size(29, 13);
             this.Vent.TabIndex = 15;
@@ -178,15 +178,15 @@
             "a",
             "b",
             "c"});
-            this.cbChoixVent.Location = new System.Drawing.Point(123, 219);
+            this.cbChoixVent.Location = new System.Drawing.Point(118, 240);
             this.cbChoixVent.Name = "cbChoixVent";
             this.cbChoixVent.Size = new System.Drawing.Size(120, 21);
             this.cbChoixVent.TabIndex = 17;
-            this.cbChoixVent.SelectedIndexChanged += new System.EventHandler(this.cbChoixVent_SelectedIndexChanged);
+            this.cbChoixVent.Text = "a";
             // 
             // Simulation
             // 
-            this.Simulation.Location = new System.Drawing.Point(83, 547);
+            this.Simulation.Location = new System.Drawing.Point(98, 536);
             this.Simulation.Name = "Simulation";
             this.Simulation.Size = new System.Drawing.Size(105, 51);
             this.Simulation.TabIndex = 18;
@@ -207,7 +207,7 @@
             // 
             // tpsNavigation
             // 
-            this.tpsNavigation.Location = new System.Drawing.Point(62, 327);
+            this.tpsNavigation.Location = new System.Drawing.Point(87, 404);
             this.tpsNavigation.Name = "tpsNavigation";
             this.tpsNavigation.Size = new System.Drawing.Size(141, 20);
             this.tpsNavigation.TabIndex = 19;
@@ -215,7 +215,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 316);
+            this.label3.Location = new System.Drawing.Point(87, 393);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 13);
             this.label3.TabIndex = 20;
@@ -223,7 +223,7 @@
             // 
             // Nettoyage
             // 
-            this.Nettoyage.Location = new System.Drawing.Point(440, 526);
+            this.Nettoyage.Location = new System.Drawing.Point(816, 526);
             this.Nettoyage.Name = "Nettoyage";
             this.Nettoyage.Size = new System.Drawing.Size(111, 30);
             this.Nettoyage.TabIndex = 21;
@@ -233,14 +233,14 @@
             // 
             // tBNouverts
             // 
-            this.tBNouverts.Location = new System.Drawing.Point(20, 387);
+            this.tBNouverts.Location = new System.Drawing.Point(45, 464);
             this.tBNouverts.Name = "tBNouverts";
             this.tBNouverts.Size = new System.Drawing.Size(96, 20);
             this.tBNouverts.TabIndex = 22;
             // 
             // tBNfermes
             // 
-            this.tBNfermes.Location = new System.Drawing.Point(143, 387);
+            this.tBNfermes.Location = new System.Drawing.Point(168, 464);
             this.tBNfermes.Name = "tBNfermes";
             this.tBNfermes.Size = new System.Drawing.Size(100, 20);
             this.tBNfermes.TabIndex = 23;
@@ -248,7 +248,7 @@
             // lNOuverts
             // 
             this.lNOuverts.AutoSize = true;
-            this.lNOuverts.Location = new System.Drawing.Point(30, 371);
+            this.lNOuverts.Location = new System.Drawing.Point(55, 448);
             this.lNOuverts.Name = "lNOuverts";
             this.lNOuverts.Size = new System.Drawing.Size(82, 13);
             this.lNOuverts.TabIndex = 24;
@@ -257,7 +257,7 @@
             // lNfermes
             // 
             this.lNfermes.AutoSize = true;
-            this.lNfermes.Location = new System.Drawing.Point(151, 371);
+            this.lNfermes.Location = new System.Drawing.Point(176, 448);
             this.lNfermes.Name = "lNfermes";
             this.lNfermes.Size = new System.Drawing.Size(78, 13);
             this.lNfermes.TabIndex = 25;
@@ -272,29 +272,49 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "PROJET INTELLIGENCE ARTIFICIELLE";
             // 
-            // lPrecision
+            // tBZoneVoisin
             // 
-            this.lPrecision.AutoSize = true;
-            this.lPrecision.Location = new System.Drawing.Point(61, 259);
-            this.lPrecision.Name = "lPrecision";
-            this.lPrecision.Size = new System.Drawing.Size(50, 13);
-            this.lPrecision.TabIndex = 27;
-            this.lPrecision.Text = "Precision";
+            this.tBZoneVoisin.Location = new System.Drawing.Point(175, 299);
+            this.tBZoneVoisin.Name = "tBZoneVoisin";
+            this.tBZoneVoisin.Size = new System.Drawing.Size(120, 20);
+            this.tBZoneVoisin.TabIndex = 34;
+            this.tBZoneVoisin.Text = "2";
             // 
-            // tBPrecision
+            // lVoisinage
             // 
-            this.tBPrecision.Location = new System.Drawing.Point(123, 252);
-            this.tBPrecision.Name = "tBPrecision";
-            this.tBPrecision.Size = new System.Drawing.Size(120, 20);
-            this.tBPrecision.TabIndex = 28;
+            this.lVoisinage.AutoSize = true;
+            this.lVoisinage.Location = new System.Drawing.Point(181, 281);
+            this.lVoisinage.Name = "lVoisinage";
+            this.lVoisinage.Size = new System.Drawing.Size(95, 13);
+            this.lVoisinage.TabIndex = 33;
+            this.lVoisinage.Text = "Zone de voisinage";
+            // 
+            // tBDistanceNoeud
+            // 
+            this.tBDistanceNoeud.Location = new System.Drawing.Point(28, 300);
+            this.tBDistanceNoeud.Name = "tBDistanceNoeud";
+            this.tBDistanceNoeud.Size = new System.Drawing.Size(120, 20);
+            this.tBDistanceNoeud.TabIndex = 32;
+            this.tBDistanceNoeud.Text = "2";
+            // 
+            // lDistanceNoeud
+            // 
+            this.lDistanceNoeud.AutoSize = true;
+            this.lDistanceNoeud.Location = new System.Drawing.Point(25, 281);
+            this.lDistanceNoeud.Name = "lDistanceNoeud";
+            this.lDistanceNoeud.Size = new System.Drawing.Size(132, 13);
+            this.lDistanceNoeud.TabIndex = 31;
+            this.lDistanceNoeud.Text = "Distance entre les Noeuds";
             // 
             // Affichage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 612);
-            this.Controls.Add(this.tBPrecision);
-            this.Controls.Add(this.lPrecision);
+            this.Controls.Add(this.tBZoneVoisin);
+            this.Controls.Add(this.lVoisinage);
+            this.Controls.Add(this.tBDistanceNoeud);
+            this.Controls.Add(this.lDistanceNoeud);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lNfermes);
             this.Controls.Add(this.lNOuverts);
@@ -321,7 +341,6 @@
             this.Controls.Add(this.X_init);
             this.Name = "Affichage";
             this.Text = " ";
-            this.Load += new System.EventHandler(this.Affichage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Mer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -353,8 +372,10 @@
         private System.Windows.Forms.Label lNOuverts;
         private System.Windows.Forms.Label lNfermes;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lPrecision;
-        private System.Windows.Forms.TextBox tBPrecision;
+        private System.Windows.Forms.TextBox tBZoneVoisin;
+        private System.Windows.Forms.Label lVoisinage;
+        private System.Windows.Forms.TextBox tBDistanceNoeud;
+        private System.Windows.Forms.Label lDistanceNoeud;
     }
 }
 

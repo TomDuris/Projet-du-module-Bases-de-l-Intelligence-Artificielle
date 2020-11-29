@@ -8,36 +8,31 @@ namespace Pluscourtchemin
 {
     class Node :GenericNode
     {
-        public int P_x { get; set; }
-        public int P_y { get; set; }
-        public static int Pf_x { get; set; }
-        public static int Pf_y { get; set; }
+        public  double P_x { get; set; }
+        public double P_y { get; set; }
+        public static double Pf_x { get; set; }
+        public static double Pf_y { get; set; }
         public char cas = ' '; // à modifier en ‘b’ ou ‘c’ selon le choix de l’utilisateur
         public List<GenericNode> _Listsuccesseur;
-        public int dy { get; set; }
-        public int dx { get; set; }
-        public static int distance_Noeud { get; set; }
-        public static int Zone_voisinage { get; set; }
-        public int precision;
-        public Node( int px, int py)
+        public static double distance_Noeud { get; set; }
+        public static double Zone_voisinage { get; set; }
+        public Node( double px, double py)
         {
             P_x = px;
             P_y = py;
         }       
         public override List<GenericNode> GetListSucc()
         {
-            distance_Noeud = 2;
-            Zone_voisinage = 2;
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
-            int P_X_PointDebut = P_x - distance_Noeud * Zone_voisinage;
-            int P_Y_PointDebut = P_y - distance_Noeud * Zone_voisinage;
-            int P_X_PointFin = P_x + distance_Noeud * Zone_voisinage;
-            int P_Y_PointFin = P_y + distance_Noeud * Zone_voisinage;
+            double P_X_PointDebut = P_x - distance_Noeud * Zone_voisinage;
+            double P_Y_PointDebut = P_y - distance_Noeud * Zone_voisinage;
+            double P_X_PointFin = P_x + distance_Noeud * Zone_voisinage;
+            double P_Y_PointFin = P_y + distance_Noeud * Zone_voisinage;
             
-            for (int  i = P_X_PointDebut; i <= P_X_PointFin; i += distance_Noeud )
+            for (double  i = P_X_PointDebut; i <= P_X_PointFin; i += distance_Noeud )
             {
-                for (int j = P_Y_PointDebut; j <=  P_Y_PointFin; j  += distance_Noeud)
-                    if ((i != P_x || j!=P_y) && i >= 0 && j >= 0 && i <= Affichage.nbnodes && j <= Affichage.nbnodes)
+                for (double j = P_Y_PointDebut; j <=  P_Y_PointFin; j  += distance_Noeud)
+                    if ((i != P_x || j!=P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
                         _Listsuccesseur.Add(new Node(i,j));
         }
             return _Listsuccesseur; 
