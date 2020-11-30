@@ -1,2 +1,4 @@
-# Projet-du-module-Bases-de-l-Intelligence-Artificielle
-TD d'IA avec salotti
+# Projet-du-module-Bases-de-l-Intelligence-Artificielle avec monsieur Salotti
+Amaury Vincent
+Oriane Caracatsanis
+Pelletreau-Duris Tom
