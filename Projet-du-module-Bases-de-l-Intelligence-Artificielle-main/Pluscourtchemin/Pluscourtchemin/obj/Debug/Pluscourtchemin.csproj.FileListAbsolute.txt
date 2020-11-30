@@ -16,3 +16,13 @@ C:\Users\vince\Desktop\Projet-du-module-Bases-de-l-Intelligence-Artificielle-mai
 C:\Users\vince\Desktop\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.csproj.GenerateResource.cache
 C:\Users\vince\Desktop\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.exe
 C:\Users\vince\Desktop\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.pdb
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\bin\Debug\Pluscourtchemin.exe.config
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\bin\Debug\Pluscourtchemin.exe
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\bin\Debug\Pluscourtchemin.pdb
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.csprojAssemblyReference.cache
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.Affichage.resources
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.Properties.Resources.resources
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.csproj.GenerateResource.cache
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.csproj.CoreCompileInputs.cache
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.exe
+C:\Users\tomdu\OneDrive\Documents\Projet-du-module-Bases-de-l-Intelligence-Artificielle\Projet-du-module-Bases-de-l-Intelligence-Artificielle-main\Pluscourtchemin\Pluscourtchemin\obj\Debug\Pluscourtchemin.pdb

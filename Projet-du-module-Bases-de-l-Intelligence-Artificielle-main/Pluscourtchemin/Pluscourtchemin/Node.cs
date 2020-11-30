@@ -8,8 +8,11 @@ namespace Pluscourtchemin
 {
     class Node :GenericNode
     {
+        //Coordonnée du point de départ
         public  double P_x { get; set; }
         public double P_y { get; set; }
+
+        //coordonénes du poitn d'arrivée
         public static double Pf_x { get; set; }
         public static double Pf_y { get; set; }
         public char cas = ' '; // à modifier en ‘b’ ou ‘c’ selon le choix de l’utilisateur
@@ -20,23 +23,116 @@ namespace Pluscourtchemin
         {
             P_x = px;
             P_y = py;
-        }       
-        public override List<GenericNode> GetListSucc()
+        }
+        /*public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
             double P_X_PointDebut = P_x - distance_Noeud * Zone_voisinage;
             double P_Y_PointDebut = P_y - distance_Noeud * Zone_voisinage;
             double P_X_PointFin = P_x + distance_Noeud * Zone_voisinage;
             double P_Y_PointFin = P_y + distance_Noeud * Zone_voisinage;
-            
-            for (double  i = P_X_PointDebut; i <= P_X_PointFin; i += distance_Noeud )
+
+            //On prend les noeuds tous les distance_noeud 
+            for (double i = P_X_PointDebut; i <= P_X_PointFin; i += distance_Noeud)
             {
-                for (double j = P_Y_PointDebut; j <=  P_Y_PointFin; j  += distance_Noeud)
-                    if ((i != P_x || j!=P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
-                        _Listsuccesseur.Add(new Node(i,j));
+                for (double j = P_Y_PointDebut; j <= P_Y_PointFin; j += distance_Noeud)
+                    if ((i != P_x || j != P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
+                        _Listsuccesseur.Add(new Node(i, j));
+            }
+            return _Listsuccesseur;
+        }*/
+        public override List<GenericNode> GetListSucc()
+        {
+            List<GenericNode> _Listsuccesseur = new List<GenericNode>();
+            double P_X_PointDebut = P_x - 1 * Zone_voisinage;
+            double P_Y_PointDebut = P_y - 1 * Zone_voisinage;
+            double P_X_PointFin = P_x + 1 * Zone_voisinage;
+            double P_Y_PointFin = P_y + 1 * Zone_voisinage;
+
+            //On prend les noeuds tous les distance_noeud 
+            for (double i = P_X_PointDebut; i <= P_X_PointFin; i += distance_Noeud)
+            {
+                for (double j = P_Y_PointDebut; j <= P_Y_PointFin; j += distance_Noeud)
+                    if ((i != P_x || j != P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
+                        _Listsuccesseur.Add(new Node(i, j));
+            }
+            return _Listsuccesseur;
         }
-            return _Listsuccesseur; 
-        }
+
+        /*public override List<GenericNode> GetListSucc()
+        {
+            List<GenericNode> _Listsuccesseur = new List<GenericNode>();
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 1));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 1));
+            return _Listsuccesseur;
+        }*/
+
+        /*public override List<GenericNode> GetListSucc()
+        {
+            List<GenericNode> _Listsuccesseur = new List<GenericNode>();
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 1));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 1));
+
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 3));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 3));
+
+            _Listsuccesseur.Add(new Node(P_x, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x - 2, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x + 2, P_y - 9));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y - 9));
+
+
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 3));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 2));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 1));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 3));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 2));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 1));
+
+
+            _Listsuccesseur.Add(new Node(P_x, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x - 2, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x + 2, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y + 9));
+
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 3));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 2));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 1));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 1));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 2));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 3));
+
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 3));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 3));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 3));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 3));
+
+            _Listsuccesseur.Add(new Node(P_x - 5, P_y - 5));
+            _Listsuccesseur.Add(new Node(P_x + 5, P_y + 5));
+            _Listsuccesseur.Add(new Node(P_x - 5, P_y + 5));
+            _Listsuccesseur.Add(new Node(P_x + 5, P_y - 5));
+
+            _Listsuccesseur.Add(new Node(P_x - 7, P_y - 7));
+            _Listsuccesseur.Add(new Node(P_x + 7, P_y + 7));
+            _Listsuccesseur.Add(new Node(P_x - 7, P_y + 7));
+            _Listsuccesseur.Add(new Node(P_x + 7, P_y - 7));
+
+            return _Listsuccesseur;
+        }*/
         public override double CalculeHCost()
         {
             double Hcost = heuristique(P_x, P_y, Pf_x, Pf_y);
@@ -67,6 +163,7 @@ namespace Pluscourtchemin
         {
             double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
             if (distance > 10) return 1000000;
+            //Le vent et sa direction dépend de la position du bateau dans la carte matricielle
             double windspeed = get_wind_speed((x1 + x2) / 2.0, (y1 + y2) / 2.0);
             double winddirection = get_wind_direction((x1 + x2) / 2.0, (y1 + y2) / 2.0);
             double boatspeed;
@@ -99,23 +196,33 @@ namespace Pluscourtchemin
         }
         public double heuristique(double x1, double y1, double x2, double y2)
         {
-            double distance = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-            if (distance > 10) return 1000000;
-            double alpha = 45;
-            double windspeed = 50;
-            double boatspeed = (0.6 + 0.3 * alpha / 45) * windspeed;
+            double distance = Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((y1 - y2), 2));
+
+            double boatspeed = 1;
+            if (cas == 'a')
+            {
+                boatspeed = (0.6 + 0.3 * 45 / 45) * 50;
+            }
+            else
+            {
+                if ((y1 + y2) / 2 < 150) { boatspeed = (0.6 + 0.3 * 45 / 45) * 50; }
+                else { boatspeed = (0.6 + 0.3 * 45 / 45) * 20; }
+            }
+            
             return (distance / boatspeed);
         }
 
+        //Ici, il faut transformer le repère orthonormé du sujet dans notre repère matriciel où l'origine est en haut à gauche.
+        //En d'autres terme, les inférieurs deviennent des supérieurs et inversement. La moitié supérieure de la carte est y>150 pour le repère orthonormé, et y<150 pour le repère matriciel
         public double get_wind_speed(double x, double y)
         {
             if (cas == 'a')
                 return 50;
             else if (cas == 'b')
-                if (y > 150)
+                if (y < 150)
                     return 50;
                 else return 20;
-            else if (y > 150)
+            else if (y < 150)
                 return 50;
             else return 20;
         }
@@ -124,10 +231,10 @@ namespace Pluscourtchemin
             if (cas == 'a')
                 return 30;
             else if (cas == 'b')
-                if (y > 150)
+                if (y < 150)
                     return 180;
                 else return 90;
-            else if (y > 150)
+            else if (y < 150)
                 return 170;
             else return 65;
         }

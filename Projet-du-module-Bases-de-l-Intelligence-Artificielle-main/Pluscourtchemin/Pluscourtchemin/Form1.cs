@@ -23,9 +23,10 @@ namespace Pluscourtchemin
             InitializeComponent();
         }
 
+        //Le bouton A* lance l'agorithme de recherche avant d'afficher les paramètres clés dans le form
         private void button3_Click(object sender, EventArgs e)
         {
-
+            //paramètres
             Node Point_Initial = new Node(Convert.ToDouble(X_init.Text), Convert.ToDouble(Y_init.Text));
             Node Point_final = new Node(Convert.ToDouble(X_final.Text), Convert.ToDouble(Y_final.Text));
             Node.Pf_x = Convert.ToDouble(X_final.Text);
@@ -36,7 +37,8 @@ namespace Pluscourtchemin
             listBox1.Items.Add("( " + Convert.ToString(Point_Initial.P_x) + ", " + Convert.ToString(Point_Initial.P_y)+ ")");
             Point_Initial.cas = Convert.ToChar(cbChoixVent.SelectedItem.ToString());
             SearchTree g = new SearchTree();
-            
+           
+            //Lancement de la recherche
             List<GenericNode> solution = g.RechercheSolutionAEtoile(Point_Initial);
             MessageBox.Show(Convert.ToString(solution.Count));
             Node N1 = Point_Initial;
@@ -70,83 +72,12 @@ namespace Pluscourtchemin
             return Py;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            StreamReader monStreamReader = new StreamReader("graphe1.txt");
-
-            // Lecture du fichier avec un while, évidemment !
-            // 1ère ligne : "nombre de noeuds du graphe
-            string ligne = monStreamReader.ReadLine();
-            int i = 0;
-            while (ligne[i] != ':') i++;
-            string strnbnoeuds = "";
-            i++; // On dépasse le ":"
-            while (ligne[i] == ' ') i++; // on saute les blancs éventuels
-            while (i < ligne.Length) { strnbnoeuds = strnbnoeuds + ligne[i];
-                i++; 
-            }
-            nbnodes = Convert.ToInt32(strnbnoeuds);
-
-            matrice = new double[nbnodes, nbnodes];
-            for (i = 0; i < nbnodes; i++)
-                for (int j = 0; j < nbnodes; j++)
-                    matrice[i, j] = -1;
-
-            // Ensuite on a ls tructure suivante : 
-            //  arc : n°noeud départ    n°noeud arrivée  valeur
-            //  exemple 4 : 
-            ligne = monStreamReader.ReadLine();
-            while (ligne != null)
-            {
-                i = 0;
-                while (ligne[i] != ':') i++;
-                i++; // on passe le :
-                while (ligne[i] == ' ') i++; // on saute les blancs éventuels
-                string strN1 = "";
-                while (ligne[i] != ' ')
-                {
-                    strN1 = strN1 + ligne[i];
-                    i++;
-                }
-                int N1 = Convert.ToInt32(strN1);
-
-                // On saute les blancs éventuels
-                while (ligne[i] == ' ') i++;
-                string strN2 = "";
-                while (ligne[i] != ' ')
-                {
-                    strN2 = strN2 + ligne[i];
-                    i++;
-                }
-                int N2 = Convert.ToInt32(strN2);
-
-                // On saute les blancs éventuels
-                while (ligne[i] == ' ') i++;
-                string strVal = "";
-                while ((i < ligne.Length) && (ligne[i] !=' '))
-                {
-                    strVal = strVal + ligne[i];
-                    i++;
-                }
-                double val = Convert.ToDouble(strVal);
-
-                matrice[N1, N2] = val;
-                matrice[N2, N1] = val;
-                listBoxgraphe.Items.Add(Convert.ToString(N1)
-                   + "--->" + Convert.ToString(N2)
-                   + "   : " + Convert.ToString(matrice[N1, N2]));            
-
-                ligne = monStreamReader.ReadLine();
-            }
-            // Fermeture du StreamReader (obligatoire) 
-            monStreamReader.Close();
-        }
+        
         private void Simulations(object sender, EventArgs e)
         {
+            Graphics t = Mer.CreateGraphics();
             Pen redPen = new Pen(Color.Red);
             redPen.Width = 3F;
-            Graphics t = Mer.CreateGraphics();
             Node NI = (Node)soluce.ElementAt(0);
             Point pos_depart = new Point(Convert.ToInt32(NI.P_x), (300- Convert.ToInt32(NI.P_y)+1));
             foreach (GenericNode N in soluce)
@@ -163,6 +94,7 @@ namespace Pluscourtchemin
         private void Nettoyage_Click(object sender, EventArgs e)
         {
             Graphics t = Mer.CreateGraphics();
+            Mer.Invalidate();
             listBox1.Items.Clear();
             listBoxgraphe.Items.Clear();
             soluce.Clear();

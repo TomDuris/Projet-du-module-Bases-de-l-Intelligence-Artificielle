@@ -48,7 +48,9 @@ namespace Pluscourtchemin
 
         public List<GenericNode> RechercheSolutionAEtoile(GenericNode N0)
         {
+            //Liste des ouverts , les noeuds que l'on explore
             L_Ouverts = new List<GenericNode>();
+            //liste des fermés, les noeuds déjà explorés
             L_Fermes = new List<GenericNode>();
             // Le noeud passé en paramètre est supposé être le noeud initial
             GenericNode N = N0;
@@ -112,8 +114,9 @@ namespace Pluscourtchemin
                     if (N2bis != null)
                     {
                         // Il existe, donc on l'a déjà vu, N2 n'est qu'une copie de N2Bis
+
                         // Le nouveau chemin passant par N est-il meilleur ?
-                        if (N.GetGCost() + N.GetArcCost(N2) < N2bis.GetGCost())
+                        if (N.GetGCost() + N.GetArcCost(N2) < N2.GetGCost())
                         {
                             // Mise à jour de N2bis
                             N2bis.SetGCost(N.GetGCost() + N.GetArcCost(N2));
@@ -134,7 +137,13 @@ namespace Pluscourtchemin
                         N2.SetGCost(N.GetGCost() + N.GetArcCost(N2));
                         N2.SetNoeud_Parent(N);
                         N2.calculCoutTotal(); // somme de GCost et HCost
-                        this.InsertNewNodeInOpenList(N2);
+
+                        //essai : si le noeud a un cout de plus d'1 million on ne l'explore pas
+                        if (N2.Cout_Total >= 1000000)
+                        {
+                            //nothing
+                        }
+                        else { this.InsertNewNodeInOpenList(N2); }
                     }
                 }
                 // else il est dans les fermés donc on ne fait rien,
@@ -149,11 +158,12 @@ namespace Pluscourtchemin
             { L_Ouverts.Add(NewNode); }
             else
             {
-                GenericNode N = L_Ouverts[0];
+                GenericNode NoeudaCompare = L_Ouverts[0];
                 bool trouve = false;
                 int i = 0;
+
                 do
-                    if (NewNode.Cout_Total < N.Cout_Total)
+                    if (NewNode.Cout_Total < NoeudaCompare.Cout_Total)
                     {
                         L_Ouverts.Insert(i, NewNode);
                         trouve = true;
@@ -163,13 +173,13 @@ namespace Pluscourtchemin
                         i++;
                         if (L_Ouverts.Count == i)
                         {
-                            N = null;
+                            NoeudaCompare = null;
                             L_Ouverts.Insert(i, NewNode);
                         }
                         else
-                        { N = L_Ouverts[i]; }
+                        { NoeudaCompare = L_Ouverts[i]; }
                     }
-                while ((N != null) && (trouve == false));
+                while ((NoeudaCompare != null) && (trouve == false));
             }
         }
 

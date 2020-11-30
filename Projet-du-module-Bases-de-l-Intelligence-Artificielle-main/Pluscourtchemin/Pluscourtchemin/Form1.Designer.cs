@@ -165,9 +165,9 @@
             // Mer
             // 
             this.Mer.Image = ((System.Drawing.Image)(resources.GetObject("Mer.Image")));
-            this.Mer.Location = new System.Drawing.Point(326, 103);
+            this.Mer.Location = new System.Drawing.Point(365, 128);
             this.Mer.Name = "Mer";
-            this.Mer.Size = new System.Drawing.Size(400, 400);
+            this.Mer.Size = new System.Drawing.Size(300, 300);
             this.Mer.TabIndex = 16;
             this.Mer.TabStop = false;
             // 
