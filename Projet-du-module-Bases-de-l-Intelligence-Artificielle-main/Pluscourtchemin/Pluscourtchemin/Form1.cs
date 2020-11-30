@@ -27,8 +27,8 @@ namespace Pluscourtchemin
         private void button3_Click(object sender, EventArgs e)
         {
             //paramètres
-            Node Point_Initial = new Node(Convert.ToDouble(X_init.Text), Convert.ToDouble(Y_init.Text));
-            Node Point_final = new Node(Convert.ToDouble(X_final.Text), Convert.ToDouble(Y_final.Text));
+            Node Point_Initial = new Node(Convert.ToDouble(X_init.Text), Convert.ToDouble(Y_init.Text), Convert.ToChar(cbChoixVent.SelectedItem.ToString()));
+            Node Point_final = new Node(Convert.ToDouble(X_final.Text), Convert.ToDouble(Y_final.Text), Convert.ToChar(cbChoixVent.SelectedItem.ToString()));
             Node.Pf_x = Convert.ToDouble(X_final.Text);
             Node.Pf_y = Convert.ToDouble(Y_final.Text);
             Node.distance_Noeud = Convert.ToDouble(tBDistanceNoeud.Text);
@@ -37,8 +37,9 @@ namespace Pluscourtchemin
             listBox1.Items.Add("( " + Convert.ToString(Point_Initial.P_x) + ", " + Convert.ToString(Point_Initial.P_y)+ ")");
             Point_Initial.cas = Convert.ToChar(cbChoixVent.SelectedItem.ToString());
             SearchTree g = new SearchTree();
-           
+
             //Lancement de la recherche
+            Point_Initial.GenericCas = Point_Initial.cas;
             List<GenericNode> solution = g.RechercheSolutionAEtoile(Point_Initial);
             MessageBox.Show(Convert.ToString(solution.Count));
             Node N1 = Point_Initial;
@@ -96,7 +97,6 @@ namespace Pluscourtchemin
             Graphics t = Mer.CreateGraphics();
             Mer.Invalidate();
             listBox1.Items.Clear();
-            listBoxgraphe.Items.Clear();
             soluce.Clear();
         }
     }

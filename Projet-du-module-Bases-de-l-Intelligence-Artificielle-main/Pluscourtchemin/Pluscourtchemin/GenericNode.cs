@@ -15,6 +15,8 @@ namespace Pluscourtchemin
         protected GenericNode ParentNode;     // noeud parent
         protected List<GenericNode> Enfants;  // noeuds enfants
 
+        public char GenericCas; // à modifier en ‘b’ ou ‘c’ selon le choix de l’utilisateur
+
         public GenericNode()
         {
             ParentNode = null;

@@ -15,14 +15,15 @@ namespace Pluscourtchemin
         //coordonénes du poitn d'arrivée
         public static double Pf_x { get; set; }
         public static double Pf_y { get; set; }
-        public char cas = ' '; // à modifier en ‘b’ ou ‘c’ selon le choix de l’utilisateur
-        public List<GenericNode> _Listsuccesseur;
+        public char cas { get; set; } // à modifier en ‘b’ ou ‘c’ selon le choix de l’utilisateur
+        public List<Node> _Listsuccesseur;
         public static double distance_Noeud { get; set; }
         public static double Zone_voisinage { get; set; }
-        public Node( double px, double py)
+        public Node( double px, double py, char c)
         {
             P_x = px;
             P_y = py;
+            cas = c;
         }
         public override List<GenericNode> GetListSucc()
         {
@@ -37,7 +38,7 @@ namespace Pluscourtchemin
             {
                 for (double j = P_Y_PointDebut; j <= P_Y_PointFin; j += distance_Noeud)
                     if ((i != P_x || j != P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
-                        _Listsuccesseur.Add(new Node(i, j));
+                        _Listsuccesseur.Add(new Node(i, j, this.cas));
             }
             return _Listsuccesseur;
         }
@@ -205,24 +206,23 @@ namespace Pluscourtchemin
             }
             else
             {
-                if ((y1 + y2) / 2 < 150) { boatspeed = (0.6 + 0.3 * 45 / 45) * 50; }
+                if ((y1 + y2) / 2 > 150) { boatspeed = (0.6 + 0.3 * 45 / 45) * 50; }
                 else { boatspeed = (0.6 + 0.3 * 45 / 45) * 20; }
             }
             
             return (distance / boatspeed);
         }
 
-        //Ici, il faut transformer le repère orthonormé du sujet dans notre repère matriciel où l'origine est en haut à gauche.
-        //En d'autres terme, les inférieurs deviennent des supérieurs et inversement. La moitié supérieure de la carte est y>150 pour le repère orthonormé, et y<150 pour le repère matriciel
+        //On pourrait croire qu'il faut changer le repère orthonorméen repère matriciel mais en fait non.
         public double get_wind_speed(double x, double y)
         {
             if (cas == 'a')
                 return 50;
             else if (cas == 'b')
-                if (y < 150)
+                if (y > 150)
                     return 50;
                 else return 20;
-            else if (y < 150)
+            else if (y > 150)
                 return 50;
             else return 20;
         }
@@ -231,10 +231,10 @@ namespace Pluscourtchemin
             if (cas == 'a')
                 return 30;
             else if (cas == 'b')
-                if (y < 150)
+                if (y > 150)
                     return 180;
                 else return 90;
-            else if (y < 150)
+            else if (y > 150)
                 return 170;
             else return 65;
         }

@@ -55,7 +55,7 @@ namespace Pluscourtchemin
             // Le noeud passé en paramètre est supposé être le noeud initial
             GenericNode N = N0;
             L_Ouverts.Add(N0);
-
+            N.GenericCas = N0.GenericCas;
             // tant que le noeud n'est pas terminal et que ouverts n'est pas vide
             while (L_Ouverts.Count != 0 && N.EndState() == false)
             {
@@ -105,14 +105,17 @@ namespace Pluscourtchemin
             List<GenericNode> listsucc = N.GetListSucc();
             foreach (GenericNode N2 in listsucc)
             {
+                N2.GenericCas = N.GenericCas;
                 // N2 est-il une copie d'un nœud déjà vu et placé dans la liste des fermés ?
                 GenericNode N2bis = ChercheNodeDansFermes(N2);
+                
                 if (N2bis == null)
                 {
                     // Rien dans les fermés. Est-il dans les ouverts ?
                     N2bis = ChercheNodeDansOuverts(N2);
                     if (N2bis != null)
                     {
+                        N2bis.GenericCas = N.GenericCas;
                         // Il existe, donc on l'a déjà vu, N2 n'est qu'une copie de N2Bis
 
                         // Le nouveau chemin passant par N est-il meilleur ?

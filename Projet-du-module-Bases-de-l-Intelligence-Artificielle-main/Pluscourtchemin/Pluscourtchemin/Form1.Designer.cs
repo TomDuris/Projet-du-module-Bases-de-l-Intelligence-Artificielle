@@ -44,7 +44,6 @@
             this.Mer = new System.Windows.Forms.PictureBox();
             this.cbChoixVent = new System.Windows.Forms.ComboBox();
             this.Simulation = new System.Windows.Forms.Button();
-            this.listBoxgraphe = new System.Windows.Forms.ListBox();
             this.tpsNavigation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Nettoyage = new System.Windows.Forms.Button();
@@ -196,15 +195,6 @@
             this.Simulation.UseVisualStyleBackColor = true;
             this.Simulation.Click += new System.EventHandler(this.Simulations);
             // 
-            // listBoxgraphe
-            // 
-            this.listBoxgraphe.FormattingEnabled = true;
-            this.listBoxgraphe.Location = new System.Drawing.Point(977, 526);
-            this.listBoxgraphe.Margin = new System.Windows.Forms.Padding(2);
-            this.listBoxgraphe.Name = "listBoxgraphe";
-            this.listBoxgraphe.Size = new System.Drawing.Size(100, 121);
-            this.listBoxgraphe.TabIndex = 9;
-            // 
             // tpsNavigation
             // 
             this.tpsNavigation.Location = new System.Drawing.Point(87, 404);
@@ -278,7 +268,7 @@
             this.tBZoneVoisin.Name = "tBZoneVoisin";
             this.tBZoneVoisin.Size = new System.Drawing.Size(120, 20);
             this.tBZoneVoisin.TabIndex = 34;
-            this.tBZoneVoisin.Text = "2";
+            this.tBZoneVoisin.Text = "3";
             // 
             // lVoisinage
             // 
@@ -295,7 +285,7 @@
             this.tBDistanceNoeud.Name = "tBDistanceNoeud";
             this.tBDistanceNoeud.Size = new System.Drawing.Size(120, 20);
             this.tBDistanceNoeud.TabIndex = 32;
-            this.tBDistanceNoeud.Text = "2";
+            this.tBDistanceNoeud.Text = "2,5";
             // 
             // lDistanceNoeud
             // 
@@ -331,7 +321,6 @@
             this.Controls.Add(this.Y_init);
             this.Controls.Add(this.X);
             this.Controls.Add(this.Y);
-            this.Controls.Add(this.listBoxgraphe);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.listBox1);
@@ -363,7 +352,6 @@
         private System.Windows.Forms.PictureBox Mer;
         private System.Windows.Forms.ComboBox cbChoixVent;
         private System.Windows.Forms.Button Simulation;
-        private System.Windows.Forms.ListBox listBoxgraphe;
         private System.Windows.Forms.TextBox tpsNavigation;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Nettoyage;
