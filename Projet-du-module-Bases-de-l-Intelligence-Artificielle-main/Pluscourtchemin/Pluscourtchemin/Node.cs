@@ -55,7 +55,7 @@ namespace Pluscourtchemin
             {
                 for (double j = P_Y_PointDebut; j <= P_Y_PointFin; j += distance_Noeud)
                     if ((i != P_x || j != P_y) && (i >= 0 && j >= 0) && (i <= Affichage.nbnodes && j <= Affichage.nbnodes))
-                        _Listsuccesseur.Add(new Node(i, j));
+                        _Listsuccesseur.Add(new Node(i, j,this.cas));
             }
             return _Listsuccesseur;
         }*/
@@ -63,74 +63,74 @@ namespace Pluscourtchemin
         /*public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
-            _Listsuccesseur.Add(new Node(P_x - 1, P_y));
-            _Listsuccesseur.Add(new Node(P_x + 1, P_y));
-            _Listsuccesseur.Add(new Node(P_x, P_y - 1));
-            _Listsuccesseur.Add(new Node(P_x, P_y + 1));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y,this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y,this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 1,this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 1,this.cas));
             return _Listsuccesseur;
         }*/
-
-        /*public override List<GenericNode> GetListSucc()
+/*
+        public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
-            _Listsuccesseur.Add(new Node(P_x - 1, P_y));
-            _Listsuccesseur.Add(new Node(P_x + 1, P_y));
-            _Listsuccesseur.Add(new Node(P_x, P_y - 1));
-            _Listsuccesseur.Add(new Node(P_x, P_y + 1));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 1, this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 1, this.cas));
 
-            _Listsuccesseur.Add(new Node(P_x - 3, P_y));
-            _Listsuccesseur.Add(new Node(P_x + 3, P_y));
-            _Listsuccesseur.Add(new Node(P_x, P_y - 3));
-            _Listsuccesseur.Add(new Node(P_x, P_y + 3));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 3, this.cas));
 
-            _Listsuccesseur.Add(new Node(P_x, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x - 2, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x - 1, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x + 2, P_y - 9));
-            _Listsuccesseur.Add(new Node(P_x + 1, P_y - 9));
-
-
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 3));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 2));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 1));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 3));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 2));
-            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 1));
+            _Listsuccesseur.Add(new Node(P_x, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 2, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 2, P_y - 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y - 9, this.cas));
 
 
-            _Listsuccesseur.Add(new Node(P_x, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x - 2, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x - 1, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x + 2, P_y + 9));
-            _Listsuccesseur.Add(new Node(P_x + 1, P_y + 9));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 2, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y - 1, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 2, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 9, P_y + 1, this.cas));
 
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 3));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 2));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 1));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 1));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 2));
-            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 3));
 
-            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 3));
-            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 3));
-            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 3));
-            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 3));
+            _Listsuccesseur.Add(new Node(P_x, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 2, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 1, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 2, P_y + 9, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 1, P_y + 9, this.cas));
 
-            _Listsuccesseur.Add(new Node(P_x - 5, P_y - 5));
-            _Listsuccesseur.Add(new Node(P_x + 5, P_y + 5));
-            _Listsuccesseur.Add(new Node(P_x - 5, P_y + 5));
-            _Listsuccesseur.Add(new Node(P_x + 5, P_y - 5));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 2, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y - 1, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 1, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 2, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 9, P_y + 3, this.cas));
 
-            _Listsuccesseur.Add(new Node(P_x - 7, P_y - 7));
-            _Listsuccesseur.Add(new Node(P_x + 7, P_y + 7));
-            _Listsuccesseur.Add(new Node(P_x - 7, P_y + 7));
-            _Listsuccesseur.Add(new Node(P_x + 7, P_y - 7));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y - 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y + 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 3, P_y + 3, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 3, P_y - 3, this.cas));
+
+            _Listsuccesseur.Add(new Node(P_x - 5, P_y - 5, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 5, P_y + 5, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 5, P_y + 5, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 5, P_y - 5, this.cas));
+
+            _Listsuccesseur.Add(new Node(P_x - 7, P_y - 7, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 7, P_y + 7, this.cas));
+            _Listsuccesseur.Add(new Node(P_x - 7, P_y + 7, this.cas));
+            _Listsuccesseur.Add(new Node(P_x + 7, P_y - 7, this.cas));
 
             return _Listsuccesseur;
         }*/
