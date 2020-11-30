@@ -24,7 +24,7 @@ namespace Pluscourtchemin
             P_x = px;
             P_y = py;
         }
-        /*public override List<GenericNode> GetListSucc()
+        public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
             double P_X_PointDebut = P_x - distance_Noeud * Zone_voisinage;
@@ -40,8 +40,8 @@ namespace Pluscourtchemin
                         _Listsuccesseur.Add(new Node(i, j));
             }
             return _Listsuccesseur;
-        }*/
-        public override List<GenericNode> GetListSucc()
+        }
+        /*public override List<GenericNode> GetListSucc()
         {
             List<GenericNode> _Listsuccesseur = new List<GenericNode>();
             double P_X_PointDebut = P_x - 1 * Zone_voisinage;
@@ -57,7 +57,7 @@ namespace Pluscourtchemin
                         _Listsuccesseur.Add(new Node(i, j));
             }
             return _Listsuccesseur;
-        }
+        }*/
 
         /*public override List<GenericNode> GetListSucc()
         {
