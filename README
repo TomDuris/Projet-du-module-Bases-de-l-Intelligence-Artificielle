@@ -1,7 +1,7 @@
 #PROJET INTELLIGENCE ARTIFICIELLE
 
 #Contexte
-Ce projet a été réalisé dans le cadre du module d’intelligence artificielle à l’ENSC. 
+Ce projet a été réalisé dans le cadre du module d’intelligence artificielle à l’ENSC. C'est le premier projet de ce genre en introduction à l'IA.
 L’objectif est d’aborder quelques notions répandues en intelligence artificielle et de les mettre en pratique. 
 Ici nous nous familiarisons avec l'algorithme A*, un algorithme de recherche de meilleur chemin au sein d’un graphe. 
 En particulier, il nous fallait réaliser un programme qui détermine le trajet optimal pour un voilier entre deux points.
